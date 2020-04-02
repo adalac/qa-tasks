@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "9d794616-6573-4924-8c3a-0011a6e8d6d4",
+		"name": "task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e4ea87ff-9871-4c6b-aaa8-32606010022d",
+						"exec": [
+							"\r",
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							" \r",
+							"\r",
+							"pm.test(\"response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok; \r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}posts",
+					"host": [
+						"{{url}}posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0526d4d4-6d69-4e94-bd41-3437acc04cb3",
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							" \r",
+							"\r",
+							"pm.test(\"response must be valid and have a body\", function () {\r",
+							"     pm.response.to.be.ok; \r",
+							"     pm.response.to.be.withBody;\r",
+							"     pm.response.to.be.json;\r",
+							"});\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.response.to.have.body({\r",
+							"  \"userId\": 1,\r",
+							"  \"id\": 1,\r",
+							"  \"title\": \"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\",\r",
+							"  \"body\": \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}posts/1",
+					"host": [
+						"{{url}}posts"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/ID/comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe6f95f4-413d-49f5-b10e-bd987e7b170f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok; ",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}posts/1/comments",
+					"host": [
+						"{{url}}posts"
+					],
+					"path": [
+						"1",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/comments?postId=ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3d3890c9-2ba3-4934-af42-569a645f10f7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok; ",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}comments?postId=1",
+					"host": [
+						"{{url}}comments"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts?userId=ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9c1a0c5d-051e-4944-81c2-a3fb6615bb82",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok; ",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}posts?userId=1",
+					"host": [
+						"{{url}}posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "96b6c6d9-1378-4cee-9a7e-f11cf70278d1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}posts",
+					"host": [
+						"{{url}}posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ffda7614-ebd7-445b-b1ed-6a8d73137090",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}posts/1",
+					"host": [
+						"{{url}}posts"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ccde345f-31dd-459f-81a8-70a469d50fd7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{url}}posts/1",
+					"host": [
+						"{{url}}posts"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "061e8e8e-6bf0-4fa6-a019-0d08f80c826e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}posts/1",
+					"host": [
+						"{{url}}posts"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "e9027053-efe3-4845-b38b-b2c616464156",
+			"key": "url",
+			"value": "https://jsonplaceholder.typicode.com/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

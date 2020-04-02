@@ -12,9 +12,9 @@ class BaseClass(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.get("https://allegro.pl")
 
-    # @classmethod
-    # def tearDown(self):
-    #     self.driver.quit()
+    @classmethod
+    def tearDown(self):
+        self.driver.quit()
 
     def wait_element_to_be_clickable(self, xpath, timeout=10):
         wait = WebDriverWait(self.driver, timeout)
